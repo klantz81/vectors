@@ -1,6 +1,6 @@
 #include "vector.h"
 
-vector3::vector3() : x(0.0f), y(0.0f), z(0.0f) { }
+vector3::vector3() : x(0.0), y(0.0), z(0.0) { }
 vector3::vector3(double x, double y, double z) : x(x), y(y), z(z) { }
 
 double vector3::operator*(const vector3& v) {
@@ -43,7 +43,7 @@ vector3 vector3::unit() {
 
 
 
-vector2::vector2() : x(0.0f), y(0.0f) { }
+vector2::vector2() : x(0.0), y(0.0) { }
 vector2::vector2(double x, double y) : x(x), y(y) { }
 
 double vector2::operator*(const vector2& v) {
