@@ -3,23 +3,23 @@
 vector3::vector3() : x(0.0), y(0.0), z(0.0) { }
 vector3::vector3(double x, double y, double z) : x(x), y(y), z(z) { }
 
-double vector3::operator*(const vector3& v) {
+double vector3::operator*(const vector3& v) const {
 	return this->x*v.x + this->y*v.y + this->z*v.z;
 }
 
-vector3 vector3::cross(const vector3& v) {
+vector3 vector3::cross(const vector3& v) const {
 	return vector3(this->y*v.z - this->z*v.y, this->z*v.x - this->x*v.z, this->x*v.y - this->y*v.x);
 }
 
-vector3 vector3::operator+(const vector3& v) {
+vector3 vector3::operator+(const vector3& v) const {
 	return vector3(this->x + v.x, this->y + v.y, this->z + v.z);
 }
 
-vector3 vector3::operator-(const vector3& v) {
+vector3 vector3::operator-(const vector3& v) const {
 	return vector3(this->x - v.x, this->y - v.y, this->z - v.z);
 }
 
-vector3 vector3::operator*(const double s) {
+vector3 vector3::operator*(const double s) const {
 	return vector3(this->x*s, this->y*s, this->z*s);
 }
 
@@ -28,15 +28,15 @@ vector3& vector3::operator=(const vector3& v) {
 	return *this;
 }
 
-vector3 vector3::h(const vector3& v) {
+vector3 vector3::h(const vector3& v) const {
 	return vector3(this->x * v.x, this->y * v.y, this->z * v.z);
 }
 
-double vector3::length() {
+double vector3::length() const {
 	return sqrt(this->x*this->x + this->y*this->y + this->z*this->z);
 }
 
-vector3 vector3::unit() {
+vector3 vector3::unit() const {
 	double l = this->length();
 	return vector3(this->x/l, this->y/l, this->z/l);
 }
@@ -46,19 +46,19 @@ vector3 vector3::unit() {
 vector2::vector2() : x(0.0), y(0.0) { }
 vector2::vector2(double x, double y) : x(x), y(y) { }
 
-double vector2::operator*(const vector2& v) {
+double vector2::operator*(const vector2& v) const {
 	return this->x*v.x + this->y*v.y;
 }
 
-vector2 vector2::operator+(const vector2& v) {
+vector2 vector2::operator+(const vector2& v) const {
 	return vector2(this->x + v.x, this->y + v.y);
 }
 
-vector2 vector2::operator-(const vector2& v) {
+vector2 vector2::operator-(const vector2& v) const {
 	return vector2(this->x - v.x, this->y - v.y);
 }
 
-vector2 vector2::operator*(const double s) {
+vector2 vector2::operator*(const double s) const {
 	return vector2(this->x*s, this->y*s);
 }
 
@@ -67,11 +67,11 @@ vector2& vector2::operator=(const vector2& v) {
 	return *this;
 }
 
-double vector2::length() {
+double vector2::length() const {
 	return sqrt(this->x*this->x + this->y*this->y);
 }
 
-vector2 vector2::unit() {
+vector2 vector2::unit() const {
 	double l = this->length();
 	return vector2(this->x/l, this->y/l);
 }
